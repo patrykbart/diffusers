@@ -39,15 +39,16 @@ def convert_and_save(input_lora, output_lora=None):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Convert LoRA model to PEFT and then to Kohya format.")
     parser.add_argument(
-        "input_lora",
+        "--input_lora",
         type=str,
         help="Path to the input LoRA model file in the diffusers format.",
+        required=True,
     )
     parser.add_argument(
-        "output_lora",
+        "--output_lora",
         type=str,
-        nargs="?",
         help="Path for the converted LoRA (safetensors format for AUTOMATIC1111, ComfyUI, etc.). Optional, defaults to input name with a _webui suffix.",
+        required=True,
     )
 
     args = parser.parse_args()
